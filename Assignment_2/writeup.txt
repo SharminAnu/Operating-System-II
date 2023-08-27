@@ -1,0 +1,20 @@
+Course Name: COMP5160
+Name: Sharmin Sultana
+Email: sharmin_sultana@student.uml.edu
+
+Degree of Success: 100%
+
+Approach Strategy:
+We needed to recode several XINU routines to use our new functionality in this assignment:
+
+1. Since it is software based, at first step I changed the type of interrupt to signal variable type (sigset_t)  in all the source .c files. The address variables have also changed to "long" type as the "long" type is 64 bit as required by the implemented system that also has 64 bit address.
+2. chprio.c: Nothing was mentioned about the processes in ready and current state. I include this condition in the source code by using switch statement. 
+3. clinit.c: Since our implementation system is a software based system, so I updated the clock initialization that takes input from signal.
+4. kill.c: for the sleeping process, pass through was made in the original code that is an error so I modified it by checking condition of the key of queue.
+5. create.c: in switch case statement, by using makecontext we create process table for all the processes.
+6. ctxsw.c: We called "swapcontext" function to do context switching between two posix threads of two XINU processes in place of register level context switching.
+7. For unique sleep time unit, we invoke sleep10.c in sleep.c
+8. All the functions and initialized processes in Initialize.c
+
+Problems: 
+Based on my perception, I did not find any problems with this code.
